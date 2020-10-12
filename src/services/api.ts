@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from "axios";
-import querystring from "querystring";
 import Movie from "../types/Movie";
 
 const api = axios.create({
@@ -7,4 +6,4 @@ const api = axios.create({
 });
 
 export const findMove = (text: string): Promise<AxiosResponse<Movie>> =>
-  api.get(querystring.stringify({ t: text }));
+  api.get("", { params: { t: text } });
