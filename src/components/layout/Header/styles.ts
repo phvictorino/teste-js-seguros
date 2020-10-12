@@ -17,7 +17,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 24px;
+  font-size: 30px;
   margin-left: 50px;
 
   flex: 1;

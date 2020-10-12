@@ -1,14 +1,44 @@
 import styled from "styled-components";
+import colors from "../../utils/colors";
 
 export const Container = styled.div`
-  background-color: #ccc;
-  margin: 50px;
+  background-color: transparent;
+  border: 2px solid ${colors.primary};
+  margin: 20px 0;
+
+  form {
+    display: flex;
+  }
+
+  button {
+    padding: 0 20px;
+    cursor: pointer;
+    border: 0;
+    color: ${colors.dark};
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 16px;
+
+    svg {
+      margin-right: 5px;
+    }
+
+    :active,
+    :focus {
+      outline: 0;
+    }
+  }
 
   input {
     width: 100%;
     background-color: transparent;
     border: 0;
-    padding: 10px;
+    padding: 20px;
+    font-size: 18px;
+    color: ${colors.dark};
   }
 
   input:active,
