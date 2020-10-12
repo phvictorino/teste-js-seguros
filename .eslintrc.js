@@ -36,6 +36,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
+    'react/prop-types': 'off'
   },
 };
