@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./styles";
-import MoviesList from "../../components/MoviesList";
+import MovieDetail from "../../components/MovieDetail";
 import Header from "../../components/layout/Header";
 import GlobalStyle from "../../styles/global";
 import InputSearch from "../../components/InputSearch";
@@ -12,7 +12,7 @@ const Index: React.FC = () => {
       <Header />
       <S.Container>
         <InputSearch />
-        <MoviesList />
+        <MovieDetail />
       </S.Container>
       <GlobalStyle />
     </GlobalContextProvider>

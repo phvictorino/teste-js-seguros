@@ -7,7 +7,7 @@ const NoMovieSelected: React.FC = () => {
   return (
     <S.Container>
       <MdWarning color="orange" size={60} />
-      No movie found
+      No movie found or selected
     </S.Container>
   );
 };

@@ -7,6 +7,8 @@ import React, {
 import Movie from "../types/Movie";
 import { findMoveExample } from "../services/api";
 
+import example from "../services/example.json";
+
 interface ContextData {
   text: string;
   setText: Dispatch<SetStateAction<string>>;
@@ -19,7 +21,7 @@ const GlobalContext = createContext<ContextData>({} as ContextData);
 
 export const GlobalContextProvider: React.FC = ({ children }) => {
   const [text, setText] = useState("");
-  const [movie, setMovie] = useState<Movie | null>(null);
+  const [movie, setMovie] = useState<Movie | null>(example);
 
   const findMovie = async () => {
     const movieResponse = await findMoveExample();
