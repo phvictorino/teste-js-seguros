@@ -1,14 +1,16 @@
-import React, { FormEventHandler, useContext } from "react";
+import React, { useContext } from "react";
 import { MdSearch } from "react-icons/md";
 import * as S from "./styles";
 import GlobalContext from "../../contexts/global";
 
 const InputSearch: React.FC = () => {
-  const { text, setText } = useContext(GlobalContext);
+  const { text, setText, findMovie } = useContext(GlobalContext);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     event.preventDefault();
-    alert(text);
+    await findMovie();
   };
 
   return (
