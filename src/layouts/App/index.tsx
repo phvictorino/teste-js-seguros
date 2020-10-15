@@ -5,6 +5,7 @@ import Header from "../../components/layout/Header";
 import GlobalStyle from "../../styles/global";
 import InputSearch from "../../components/InputSearch";
 import { GlobalContextProvider } from "../../contexts/global";
+import Loading from "../../components/Loading";
 
 const Index: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Index: React.FC = () => {
       <S.Container>
         <InputSearch />
         <MovieDetail />
+        <Loading />
       </S.Container>
       <GlobalStyle />
     </GlobalContextProvider>

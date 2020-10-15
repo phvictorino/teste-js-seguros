@@ -11,6 +11,7 @@ export const Container = styled.div`
   }
 
   button {
+    width: 20vw;
     padding: 0 20px;
     cursor: pointer;
     border: 0;
@@ -22,6 +23,8 @@ export const Container = styled.div`
 
     font-size: 16px;
 
+    transition: background-color 0.5s;
+
     svg {
       margin-right: 5px;
     }
@@ -29,6 +32,10 @@ export const Container = styled.div`
     :active,
     :focus {
       outline: 0;
+    }
+
+    :hover {
+      background-color: #ccc;
     }
   }
 

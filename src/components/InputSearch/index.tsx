@@ -1,24 +1,30 @@
-import React, { useContext } from "react";
+import React, { ChangeEvent, useContext, useState } from "react";
 import { MdSearch } from "react-icons/md";
 import * as S from "./styles";
 import GlobalContext from "../../contexts/global";
 
 const InputSearch: React.FC = () => {
-  const { text, setText, findMovie } = useContext(GlobalContext);
+  const { findMovie } = useContext(GlobalContext);
+
+  const [input, setInput] = useState("");
 
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
-    await findMovie();
+    await findMovie(input);
+  };
+
+  const handleInput = (event: React.FormEvent<HTMLInputElement>) => {
+    setInput(event.currentTarget.value);
   };
 
   return (
     <S.Container>
       <form onSubmit={handleSubmit}>
         <input
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={input}
+          onChange={handleInput}
           placeholder="Type the title and press enter"
         />
         <button type="submit">
