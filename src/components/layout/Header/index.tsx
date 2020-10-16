@@ -9,8 +9,8 @@ const Header: React.FC = () => (
         <Logo />
       </S.LinkLogo>
       <S.Title>
-        <span>Detailed</span>
         <span>Movies</span>
+        <span>Repo</span>
       </S.Title>
     </S.Content>
   </S.Container>

@@ -3,13 +3,19 @@ import { MdWarning } from "react-icons/md";
 
 import * as S from "./styles";
 
-const NoMovieSelected: React.FC = () => {
+interface PropsData {
+  text?: string;
+}
+
+const EmptyComponent: React.FC<PropsData> = ({
+  text = "No movie found or selected",
+}) => {
   return (
     <S.Container>
       <MdWarning color="orange" size={60} />
-      No movie found or selected
+      {text}
     </S.Container>
   );
 };
 
-export default NoMovieSelected;
+export default EmptyComponent;

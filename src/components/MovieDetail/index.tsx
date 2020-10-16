@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GlobalContext from "../../contexts/global";
-import NoMovieSelected from "../NoMovieSelected";
+import EmptyComponent from "../EmptyComponent";
 
 import * as S from "./styles";
 import MovieRatings from "../Ratings";
@@ -17,7 +17,7 @@ const MovieDetail: React.FC = () => {
   return (
     <>
       {!movie?.Title ? (
-        <NoMovieSelected />
+        <EmptyComponent />
       ) : (
         <>
           <S.Container>
