@@ -3,16 +3,18 @@ import React, {
   Dispatch,
   SetStateAction,
   useCallback,
-  useEffect,
   useState,
 } from "react";
 import Movie from "../types/Movie";
-import { getOneMovie } from "../services/api";
+import { getOneMovie, findMoviesByTitle } from "../services/api";
 
 interface ContextData {
   movie: Movie | null;
   setMovie: Dispatch<SetStateAction<Movie | null>>;
-  findMovie(title: string): Promise<void>;
+  movies: Movie[] | null;
+  setMovies: Dispatch<SetStateAction<Movie[] | null>>;
+  findMovies(title: string): Promise<void>;
+  selectMovie(id: string): Promise<void>;
   loading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
 }
@@ -21,25 +23,42 @@ const GlobalContext = createContext<ContextData>({} as ContextData);
 
 export const GlobalContextProvider: React.FC = ({ children }) => {
   const [movie, setMovie] = useState<Movie | null>(null);
+  const [movies, setMovies] = useState<Movie[] | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const findMovie = useCallback(async (title: string) => {
+  const findMovies = useCallback(async (title: string) => {
     setLoading(true);
-    const { data } = await getOneMovie(title);
+    const { data } = await findMoviesByTitle(title);
+    setMovies(data.Search);
+    setLoading(false);
+  }, []);
+
+  const selectMovie = useCallback(async (id: string) => {
+    setLoading(true);
+    const { data } = await getOneMovie(id);
     setMovie(data);
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    setLoading(true);
-    getOneMovie("tt0086190")
-      .then(({ data }) => setMovie(data))
-      .finally(() => setLoading(false));
-  }, [findMovie]);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getOneMovie("tt0086190")
+  //     .then(({ data }) => setMovie(data))
+  //     .finally(() => setLoading(false));
+  // }, [findMovie]);
 
   return (
     <GlobalContext.Provider
-      value={{ movie, setMovie, findMovie, loading, setLoading }}
+      value={{
+        movie,
+        setMovie,
+        movies,
+        setMovies,
+        findMovies,
+        loading,
+        setLoading,
+        selectMovie,
+      }}
     >
       {children}
     </GlobalContext.Provider>

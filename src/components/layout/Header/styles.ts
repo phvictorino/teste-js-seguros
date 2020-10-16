@@ -1,8 +1,14 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import colors from "../../../utils/colors";
 
 export const Container = styled.header`
   background-color: ${colors.dark};
+`;
+
+export const LinkLogo = styled(Link)`
+  width: auto;
+  height: 100%;
 `;
 
 export const Content = styled.div`

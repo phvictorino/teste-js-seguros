@@ -5,7 +5,9 @@ import Logo from "../../shared/Logo";
 const Header: React.FC = () => (
   <S.Container>
     <S.Content>
-      <Logo />
+      <S.LinkLogo to="/">
+        <Logo />
+      </S.LinkLogo>
       <S.Title>
         <span>Detailed</span>
         <span>Movies</span>

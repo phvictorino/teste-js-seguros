@@ -4,7 +4,7 @@ import * as S from "./styles";
 import GlobalContext from "../../contexts/global";
 
 const InputSearch: React.FC = () => {
-  const { findMovie } = useContext(GlobalContext);
+  const { findMovies } = useContext(GlobalContext);
 
   const [input, setInput] = useState("");
 
@@ -12,7 +12,7 @@ const InputSearch: React.FC = () => {
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
-    await findMovie(input);
+    await findMovies(input);
   };
 
   const handleInput = (event: React.FormEvent<HTMLInputElement>) => {

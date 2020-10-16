@@ -1,18 +1,25 @@
 import axios, { AxiosResponse } from "axios";
 import Movie from "../types/Movie";
 
-const api = axios.create({
-  baseURL: "http://www.omdbapi.com/",
-});
+interface OmdbResponse {
+  Search: Movie[];
+}
 
 const apikey = "fd1a42f";
 
-export const getOneMovie = (id: string): Promise<AxiosResponse<Movie>> =>
-  api.get("", { params: { i: id, apikey } });
+const api = axios.create({
+  baseURL: "http://www.omdbapi.com/",
+  params: {
+    apikey,
+  },
+});
 
-export const findMovieByTitle = (
+export const getOneMovie = (id: string): Promise<AxiosResponse<Movie>> =>
+  api.get("", { params: { i: id } });
+
+export const findMoviesByTitle = (
   title: string
-): Promise<AxiosResponse<Movie[]>> =>
-  api.get("", { params: { s: title, apikey } });
+): Promise<AxiosResponse<OmdbResponse>> =>
+  api.get("", { params: { s: title } });
 
 // export const findMoveExample = (): Movie => example;

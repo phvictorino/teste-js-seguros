@@ -1,4 +1,5 @@
 export default interface Movie {
+  imdbID: string;
   Title: string;
   Poster: string;
   Released: string;
