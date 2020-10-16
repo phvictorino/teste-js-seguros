@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import GlobalContext from "../../contexts/global";
 import EmptyComponent from "../EmptyComponent";
 
@@ -7,7 +7,7 @@ import * as S from "./styles";
 import MovieRatings from "../Ratings";
 
 const MovieDetail: React.FC = () => {
-  const { movie, selectMovie, setLoading } = useContext(GlobalContext);
+  const { movie, selectMovie } = useContext(GlobalContext);
   const { id } = useParams();
 
   useEffect(() => {
@@ -27,7 +27,10 @@ const MovieDetail: React.FC = () => {
             </p>
             <hr />
             <S.Content>
-              <img alt={movie.Title} src={movie.Poster} />
+              <div>
+                <Link to="/">Back to list</Link>
+                <img alt={movie.Title} src={movie.Poster} />
+              </div>
               <div>
                 <MovieRatings
                   imdbRating={movie.imdbRating}

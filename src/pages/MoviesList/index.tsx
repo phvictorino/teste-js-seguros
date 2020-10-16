@@ -5,6 +5,7 @@ import GlobalContext from "../../contexts/global";
 
 import * as S from "./styles";
 import EmptyComponent from "../../components/EmptyComponent";
+import Pagination from "../../components/Pagination";
 
 const MoviesList: React.FC = () => {
   const { movies } = useContext(GlobalContext);
@@ -15,18 +16,21 @@ const MoviesList: React.FC = () => {
       {!movies || movies.length === 0 ? (
         <EmptyComponent text="Nothing to show" />
       ) : (
-        <S.ListContainer>
-          {movies?.map((movie) => (
-            <Link to={`movie/${movie.imdbID}`}>
-              <figure>
-                <img alt={movie.Title} src={movie.Poster} />
-                <figcaption>
-                  <strong>{movie.Title}</strong>
-                </figcaption>
-              </figure>
-            </Link>
-          ))}
-        </S.ListContainer>
+        <>
+          <S.ListContainer>
+            {movies?.map((movie) => (
+              <Link to={`movie/${movie.imdbID}`}>
+                <figure>
+                  <img alt={movie.Title} src={movie.Poster} />
+                  <figcaption>
+                    <strong>{movie.Title}</strong>
+                  </figcaption>
+                </figure>
+              </Link>
+            ))}
+          </S.ListContainer>
+          <Pagination />
+        </>
       )}
     </>
   );

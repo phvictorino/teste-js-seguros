@@ -5,6 +5,7 @@ export const Container = styled.div`
   background-color: transparent;
   border: 2px solid ${colors.primary};
   margin: 20px 0;
+  border-radius: 5px;
 
   form {
     display: flex;

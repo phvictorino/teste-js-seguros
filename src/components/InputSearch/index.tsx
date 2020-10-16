@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdSearch } from "react-icons/md";
 import * as S from "./styles";
 import GlobalContext from "../../contexts/global";

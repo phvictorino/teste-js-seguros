@@ -31,6 +31,10 @@ export const Content = styled.div`
   grid-template-columns: 1fr 2fr;
   grid-column-gap: 30px;
 
+  a {
+    text-align: center;
+  }
+
   img {
     transition: all 0.2s ease-in-out;
   }
